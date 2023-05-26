@@ -140,26 +140,24 @@ class Datetime(datetime):
         pass
 
 
-
-class ST_Box(BaseModel):
+class ST_Box(DOMModel):
     x:float = 0.0
     y:float = 0.0
     width:float = Field(1.0,gt=0)
     height:float = Field(1.0,gt=0)
-    def __init__(self,*args,**kwargs):
-        super().__init__(*args,**kwargs)
-        if len(args) == 1 and isinstance(args[0],str):
-            boxStr = args[0]
-            boxStrSplit = boxStr.split(" ")
-            self.x = float(boxStrSplit[0])
-            self.y = float(boxStrSplit[1])
-            self.width = float(boxStrSplit[2])
-            self.height = float(boxStrSplit[3])
-            if self.width <= 0:
-                raise ValueError("Box width must be greater 0")
-            if self.height <= 0:
-                raise ValueError("Box height must be greater 0")
 
+    def decode(self,box:str):
+        if isinstance(box,(DOM,Element)):
+            box = box.text
+        boxStrSplit = box.split(" ")
+        self.x = float(boxStrSplit[0])
+        self.y = float(boxStrSplit[1])
+        self.width = float(boxStrSplit[2])
+        self.height = float(boxStrSplit[3])
+        if self.width <= 0:
+            raise ValueError("Box width must be greater 0")
+        if self.height <= 0:
+            raise ValueError("Box height must be greater 0")
 
 class CT_Box(ST_Box):pass
 

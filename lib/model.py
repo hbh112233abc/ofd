@@ -3,7 +3,7 @@
 __author__ = 'hbh112233abc@163.com'
 
 from pathlib import Path
-from typing import Union
+from typing import Any, Union
 from xml.etree.ElementTree import Element
 
 from pydantic import BaseModel,Field
@@ -93,3 +93,67 @@ class DOMModel(BaseModel):
                 key,
                 items
             )
+
+    def encode(self,tag:str=""):
+        if not tag:
+            tag = self.__class__.__name__
+        tag = "ofd:"+tag
+        text = None
+        props = {}
+        children = []
+        fields = self.__fields__
+        for key, field in fields.items():
+            if key.startswith("Attr"):
+                k = key.lstrip("Attr")
+                v = getattr(self,key)
+                if v is not None:
+                    props[k] = str(v)
+                continue
+
+            if key.startswith("Doms"):
+                k = key.lstrip("Doms")
+                doms = getattr(self,key)
+                if doms is not None:
+                    children.append(self.__make_xml(doms,k))
+                continue
+
+            if key.startswith("Dom"):
+                k = key.lstrip("Dom")
+                dom = getattr(self,key)
+                children.append(self.__make_xml(doms,k))
+                continue
+
+            if key.startswith("Nodes"):
+                k = key.lstrip("Nodes")
+                doms = getattr(self,key)
+                if doms is not None:
+                    children.append(self.__make_xml(doms,k))
+                continue
+
+            if key == "Text":
+                text = getattr(self,key)
+
+        el = Element(tag,props)
+        if children:
+            for child in children:
+                if isinstance(child,list):
+                    [el.append(e) for e in child]
+                else:
+                    el.append(child)
+        if text:
+            el.text = text
+
+        return el
+
+    def __make_xml(self,item:Any,tag:str = "")->Element:
+        if isinstance(item,DOM):
+            return item.encode(tag)
+        elif isinstance(item,list):
+            el = Element(tag) if tag else []
+            for sub_item in item:
+                el.append(self.__make_xml(sub_item))
+            return el
+        else:
+            el = Element(tag)
+            el.text = str(item)
+            return el
