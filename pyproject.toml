@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "ofd"
+version = "0.1.0"
+description = ""
+authors = ["hbh112233abc <hbh112233abc@163.com>"]
+readme = "README.md"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "http://mirrors.aliyun.com/pypi/simple"
+default = true
+
+[tool.poetry.dependencies]
+python = "^3.7"
+lxml = "^4.9.2"
+numpy = "^1.17.0"
+pydantic = "^1.10.8"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
