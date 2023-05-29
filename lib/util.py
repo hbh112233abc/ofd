@@ -9,7 +9,8 @@ from xml.etree.ElementTree import Element
 
 from lxml import etree
 from lib.dom import DOM
-from pydantic.types import ConstrainedNumberMeta
+
+
 # docNS that have to be part of every ofd file
 FILE_DOC_NS = {"ofd": "http://www.ofdspec.org/2016"}
 

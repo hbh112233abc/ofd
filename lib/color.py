@@ -41,7 +41,7 @@ class RelativeTo(str,Enum):
     Page = "Page"
     Object = "Object"
 
-class CellContent(DOMModel):
+class CellContent(Model):
     NodesPageBlock:Optional["CT_PageBlock"] = None
     AttrThumbnail:Optional[ST_RefID] = None
 

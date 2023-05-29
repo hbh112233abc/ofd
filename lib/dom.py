@@ -11,18 +11,18 @@ class DOM:
     def __init__(self,el:Element):
         self.el = el
 
-    def find(self,tag:str)->Element:
+    def query(self,tag:str)->Element:
         for child in self.el:
             if tag in child.tag:
                 return DOM(child)
 
-    def find_text(self,tag:str)->str:
-        child = self.find(tag)
+    def query_text(self,tag:str)->str:
+        child = self.query(tag)
         if child is None:
             return None
         return child.text
 
-    def find_all(self,tag:str)->List[Element]:
+    def query_all(self,tag:str)->List[Element]:
         items = []
         for child in self.el:
             if tag in child.tag:

@@ -3,17 +3,18 @@
 __author__ = 'hbh112233abc@163.com'
 
 from typing import List, Optional
-from pathlib import Path
 
-from pydantic import BaseModel,Field
+from pydantic import Field
 from lxml import etree
 
 from .classes import *
-from .util import read_xml,val
+from .version import Version
 
+class CustomData(Model):
+    AttrName: str = ""
+    Text: str = ""
 
-
-class DocInfo(DOMModel):
+class DocInfo(Model):
     DomDocId:Optional[str] = Field(default_factory=lambda:uuid4().hex)
     DomTitle:Optional[str] = None
     DomAuthor:Optional[str] = None
@@ -29,14 +30,10 @@ class DocInfo(DOMModel):
     DomsCustomDatas:Optional[List[CustomData]] = Field(default_factory=lambda:[])
 
 
-class Version(DOMModel):
-    AttrID:ST_ID = 0
-    AttrIndex:int = 0
-    AttrBaseLoc:str = ''
-    AttrCurrent:Optional[bool] = False
 
 
-class DocBody(DOMModel):
+
+class DocBody(Model):
     DomDocInfo:DocInfo = None
     DomDocRoot:ST_Loc = ""
     DomVersions:Optional[List[Version]] = Field(default_factory=lambda:[])
@@ -47,7 +44,7 @@ class DocTypeEnum(str,Enum):
     OFD = "OFD"
     OFDA = "OFD-A"
 
-class OFD(DOMModel):
+class OFD(Model):
     AttrVersion:str = "1.0"
     AttrDocType:str = "OFD"
     NodesDocBodies:List[DocBody] = Field(default_factory=lambda:[],min_items=1)

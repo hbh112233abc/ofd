@@ -6,11 +6,11 @@ __author__ = 'hbh112233abc@163.com'
 from typing import List, Optional
 
 from .classes import *
-from .model import DOMModel
+from .model import Model
 from .action import Action
 
 
-class CT_OutlineElem(DOMModel):
+class CT_OutlineElem(Model):
     AttrTitle:str = ''
     AttrCount:Optional[int] = 0
     AttrExpanded:Optional[bool] = True

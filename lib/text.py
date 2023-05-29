@@ -28,14 +28,21 @@ class Weight(IntEnum):
     W900 = 900
 
 
-class TextCode(DOMModel):
+class TextCode(Model):
     Text:str = ''
     AttrX:float = 0.0
     AttrY:float = 0.0
     AttrDeltaX:ST_Array = Field(default_factory=lambda:[])
     AttrDeltaY:ST_Array = Field(default_factory=lambda:[])
 
+class CT_CGTransform(Model):
+    AttrCodePosition:int = 0
+    # select ↓
+    AttrCodeCount:Optional[int] = 0
+    AttrGlyphCount:Optional[int] = 0
+    DomGlyphs:ST_Array = Field(default_factory=lambda:[])
 
+class CGTransform(CT_CGTransform):pass
 
 class CT_Text(BoxDOM):
     AttrFont:ST_RefID = ''

@@ -7,17 +7,17 @@ from datetime import datetime
 
 from .classes import *
 
-class Print(DOMModel):
+class Print(Model):
     AttrPrintable:bool = True
     AttrCopies:Optional[int] = -1
 
 
-class ValidPeriod(DOMModel):
+class ValidPeriod(Model):
     AttrStartDate:Optional[datetime] = None
     AttrEndDate:Optional[datetime] = None
 
 
-class CT_Permission(DOMModel):
+class CT_Permission(Model):
     DomEdit:Optional[bool] = True
     DomAnnot:Optional[bool] = True
     DomExport:Optional[bool] = True
