@@ -7,7 +7,7 @@ import zipfile
 import os
 from tempfile import NamedTemporaryFile
 
-def extract(ofd_file:Path)->Path:
+def extract(ofd_file:Path,unzip_overwrite:bool = False)->Path:
     """提取ofd文件
     1. 创建临时zip文件,复制ofd文件为zip文件
     2. 解压zip到_unzip_files目录
@@ -16,6 +16,7 @@ def extract(ofd_file:Path)->Path:
 
     Args:
         ofd_file (Path): ofd文件
+        unzip_overwrite (bool): 是否解压覆盖 Default. False
 
     Returns:
         Path: 解压后的_unzip_files目录
@@ -25,6 +26,9 @@ def extract(ofd_file:Path)->Path:
     # 读取OFD文件
     ofd_dir = ofd_file.parent
     ofd_name = ofd_file.stem
+    dst_path = ofd_dir / ofd_name+'_unzip_files'
+    if not unzip_overwrite and dst_path.exist():
+        return dst_path
     # 创建临时zip文件
     temp = NamedTemporaryFile(suffix=".zip", dir=ofd_dir, delete=False)
     # 获取临时文件完整路径
@@ -32,7 +36,6 @@ def extract(ofd_file:Path)->Path:
     # 将OFD文件数据复制到临时zip文件中
     temp.write(ofd_file.read_bytes())
     # 解压缩
-    dst_path = ofd_dir / ofd_name+'_unzip_files'
     dst_path.mkdir()
     zip_file = zipfile.ZipFile(temp_path)
     for names in zip_file.namelist():

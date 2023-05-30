@@ -39,7 +39,7 @@ def val(v:Any,tp:object)->Any:
         try:
             return tp(v)
         except Exception as e:
-            print("ERROR:",e, v, tp)
+            print("warning:",e, v, tp)
             v = v.text
     if isinstance(tp,bool):
         return boolVal(v)

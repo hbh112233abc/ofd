@@ -17,4 +17,4 @@ class CT_Image(Model):
     AttrResourceID: ST_RefID = 0
     AttrSubstitution:Optional[ST_RefID] = None
     AttrImageMask:Optional[ST_RefID] = None
-    DomBorder:
+    DomBorder:Optional[Border] = None

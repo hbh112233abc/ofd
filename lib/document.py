@@ -12,6 +12,7 @@ from .action import Action
 from .outline import OutlineElem
 from .permission import CT_Permission
 from .v_preference import CT_VPreferences
+from .bookmark import Bookmark
 
 
 class CT_CommonData(Model):

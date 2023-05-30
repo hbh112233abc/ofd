@@ -5,10 +5,11 @@ __author__ = 'hbh112233abc@163.com'
 from lib.action import Action
 from lib.text import CT_Text
 from .classes import *
+from .image import CT_Image
 
 class CT_PageBlock(Model):
     NodesTextObject:List[CT_Text] = Field(default_factory=lambda:[])
-    NodesPathObject:List[CT_Path] = Field(default_factory=lambda:[])
+    NodesPathObject:List["CT_Path"] = Field(default_factory=lambda:[])
     NodesImageObject:List[CT_Image] = Field(default_factory=lambda:[])
     NodesCompositeObject:List[CT_Composite] = Field(default_factory=lambda:[])
 
@@ -56,6 +57,7 @@ class CT_PageArea(Model):
 class PageArea(CT_PageArea):pass
 
 class Page(BaseModel):
+    ID:ST_ID = 0
     NodesTemplate:List[Template] = None
     DomArea:Optional[CT_PageArea] = None
     NodesPageRes:Optional[ST_Loc] = None

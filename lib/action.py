@@ -5,7 +5,6 @@ __author__ = 'hbh112233abc@163.com'
 from pydantic import NonNegativeFloat
 
 from .classes import *
-from .draw import CT_Region
 from .model import Model
 
 class DestType(str,Enum):
@@ -31,7 +30,7 @@ class Event(str,Enum):
 
 class Goto(Model):
     DomDest:CT_Dest = None
-    DomBookmark: Bookmark = None
+    DomBookmark: "Bookmark" = None
 
 
 class GotoA(Model):
@@ -62,10 +61,9 @@ class Movie(Model):
     AttrResourceID:ST_RefID = 0
     AttrOperator:Optional[Operator] = Operator.Play
 
-
 class CT_Action(Model):
     AttrEvent:Event = ""
-    DomRegion:Optional[CT_Region] = None
+    DomRegion:Optional["CT_Region"] = None
     DomGoto:Goto = None #本文档内的跳转
     DomURI:URI = None #打开或访问一个URI链接
     DomGotoA:GotoA = None #打开本文档附件

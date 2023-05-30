@@ -5,10 +5,10 @@ __author__ = 'hbh112233abc@163.com'
 from typing import List, Optional
 
 from pydantic import Field
-from lxml import etree
 
 from .classes import *
 from .version import Version
+from .document import Document
 
 class CustomData(Model):
     AttrName: str = ""
@@ -30,9 +30,6 @@ class DocInfo(Model):
     DomsCustomDatas:Optional[List[CustomData]] = Field(default_factory=lambda:[])
 
 
-
-
-
 class DocBody(Model):
     DomDocInfo:DocInfo = None
     DomDocRoot:ST_Loc = ""
@@ -48,3 +45,13 @@ class OFD(Model):
     AttrVersion:str = "1.0"
     AttrDocType:str = "OFD"
     NodesDocBodies:List[DocBody] = Field(default_factory=lambda:[],min_items=1)
+    __documents:List[Document] =  Field(default_factory=lambda:[],min_items=1)
+
+    def documents(self):
+        breakpoint()
+        if self.__documents:
+            return self.__documents
+        for doc_body in self.NodesDocBodies:
+            doc_xml = self.XMLPath.parent / doc_body.DocRoot
+            doc = Document(doc_xml)
+            self.__documents.append(doc)

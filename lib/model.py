@@ -3,7 +3,7 @@
 __author__ = 'hbh112233abc@163.com'
 
 from pathlib import Path
-from typing import Any, Union
+from typing import Any, Optional, Union
 from xml.etree.ElementTree import Element
 
 from lxml import etree
@@ -16,6 +16,7 @@ from .dom import DOM
 TAG_PREFIX = f"{{{FILE_DOC_NS['ofd']}}}"
 
 class Model(BaseModel):
+    XMLPath:Optional[str] = ""
     def __init__(self,*args,**kwargs):
         super().__init__(**kwargs)
         if len(args) == 1 and isinstance(args[0],(Element,DOM,Path,str)):
@@ -27,6 +28,7 @@ class Model(BaseModel):
     def decode(self, e:Union[Path,DOM,Element]):
         if isinstance(e,(str,Path)):
             dom = read_xml(e)
+            self.XMLPath = e
         elif isinstance(e,Element):
             dom = DOM(e)
         elif isinstance(e,DOM):
@@ -56,11 +58,11 @@ class Model(BaseModel):
                 setattr(self,key,dom.text)
 
     def __Attr(self,key:str,field:ModelField,dom:DOM):
-        k = key.lstrip("Attr")
+        k = key[4:]
         setattr(self,key,val(dom.get(k,field.default),field.type_))
 
     def __Dom(self,key:str,field:ModelField,dom:DOM):
-        k = key.lstrip("Dom")
+        k = key[3:]
         el = dom.query(k)
         if el is not None:
             setattr(
@@ -73,7 +75,7 @@ class Model(BaseModel):
         return [val(el,field.type_) for el in dom.query_all(key)]
 
     def __Doms(self,key:str,field:ModelField,dom:DOM):
-        k = key.lstrip("Doms")
+        k = key[4:]
         dom = dom.query(k)
         if not dom:
             return
@@ -87,7 +89,7 @@ class Model(BaseModel):
             )
 
     def __Nodes(self,key:str,field:ModelField,dom:DOM):
-        k = key.lstrip("Nodes")
+        k = field.type_.schema()['title']
         items = self.__items(k,field,dom)
         if items:
             setattr(

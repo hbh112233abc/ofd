@@ -5,7 +5,6 @@ __author__ = 'hbh112233abc@163.com'
 from .classes import *
 from .color import CT_Color
 from .model import Model
-from .action import Action
 
 class JoinEnum(str,Enum):
     Miter = "Miter"
@@ -29,7 +28,7 @@ class CT_GraphicUnit(Model):
     AttrDasOffset:Optional[NonNegativeFloat] = 0
     AttrDashPattern:Optional[ST_Array] = None
     AttrAlpha:Optional[int] = Field(255,ge=0,le=255)
-    DomsActions: Optional[List[Action]] = None
+    DomsActions: Optional[List["Action"]] = None
     DomsClips: Optional[List["Clip"]] = None
 
 
