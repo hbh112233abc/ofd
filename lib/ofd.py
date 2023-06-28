@@ -6,9 +6,11 @@ from typing import List, Optional
 
 from pydantic import Field
 
+
 from .classes import *
-from .version import Version
 from .document import Document
+from .version import DocVersion, Version
+from .signature import Signature, Signatures
 
 class CustomData(Model):
     AttrName: str = ""
@@ -27,14 +29,40 @@ class DocInfo(Model):
     DomKeywords:Optional[List[Keyword]] = Field(default_factory=lambda:[])
     DomCreator:Optional[str] = None
     DomCreatorVersion:Optional[str] = None
-    DomsCustomDatas:Optional[List[CustomData]] = Field(default_factory=lambda:[])
+    NodesCutomDatas:Optional[List[CustomData]] = Field(default_factory=lambda:[])
 
 
 class DocBody(Model):
     DomDocInfo:DocInfo = None
     DomDocRoot:ST_Loc = ""
-    DomVersions:Optional[List[Version]] = Field(default_factory=lambda:[])
+    NodesVerions:Optional[List[Version]] = Field(default_factory=lambda:[])
     DomSignatures:Optional[ST_Loc] = None
+
+    def versions(self)->List[DocVersion]:
+        if self.__children__.get('versions'):
+            return self.__children__.get('versions')
+        self.__children__['versions'] = []
+        for version in self.NodesVerions:
+            doc_xml = self.__xml__.parent / version.AttrBaseLoc
+            doc = DocVersion(doc_xml)
+            self.__children__['versions'].append(doc)
+
+        return self.__children__['versions']
+
+    def signatures(self)->List[Signatures]:
+        if self.__children__.get('signatures'):
+            return self.__children__.get('signatures')
+        self.__children__['signatures'] = []
+        if not self.DomSignatures:
+            return []
+        sign_xml = self.__xml__.parent / self.DomSignatures
+        signs = Signatures(sign_xml)
+        for loc in signs.NodesSignature:
+            loc = signs.__xml__.parent / loc
+            sign = Signature(loc)
+            self.__children__['signatures'].append(sign)
+
+        return self.__children__['signatures']
 
 
 class DocTypeEnum(str,Enum):
@@ -44,14 +72,15 @@ class DocTypeEnum(str,Enum):
 class OFD(Model):
     AttrVersion:str = "1.0"
     AttrDocType:str = "OFD"
-    NodesDocBodies:List[DocBody] = Field(default_factory=lambda:[],min_items=1)
-    __documents:List[Document] =  Field(default_factory=lambda:[],min_items=1)
+    NodesDocBody:List[DocBody] = Field(default_factory=lambda:[],min_items=1)
 
-    def documents(self):
-        breakpoint()
-        if self.__documents:
-            return self.__documents
-        for doc_body in self.NodesDocBodies:
-            doc_xml = self.XMLPath.parent / doc_body.DocRoot
+    def documents(self)->List[Document]:
+        if self.__children__.get('documents'):
+            return self.__children__.get('documents')
+        self.__children__['documents'] = []
+        for doc_body in self.NodesDocBody:
+            doc_xml = self.xml.parent / doc_body.DomDocRoot
             doc = Document(doc_xml)
-            self.__documents.append(doc)
+            self.__children__['documents'].append(doc)
+
+        return self.__children__['documents']

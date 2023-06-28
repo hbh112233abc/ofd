@@ -45,10 +45,10 @@ class Close(Model):pass
 
 class Area(Model):
     AttrStart:ST_Pos = None
-    NodesPaths:List[Union[Move,Line,QuadraticBezier,CubicBezier,Arc,Close]] = Field(default_factory=lambda:[],min_items=1)
+    NodesPath:List[Union[Move,Line,QuadraticBezier,CubicBezier,Arc,Close]] = Field(default_factory=lambda:[],min_items=1)
 
 class CT_Region(Model):
-    DomsArea: List[Area] = Field(default_factory=lambda:[],min_items=1)
+    NodesArea: List[Area] = Field(default_factory=lambda:[],min_items=1)
 
 class CT_VectorG(Model):
     AttrWidth:float = 0.0

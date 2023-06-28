@@ -26,8 +26,8 @@ def extract(ofd_file:Path,unzip_overwrite:bool = False)->Path:
     # 读取OFD文件
     ofd_dir = ofd_file.parent
     ofd_name = ofd_file.stem
-    dst_path = ofd_dir / ofd_name+'_unzip_files'
-    if not unzip_overwrite and dst_path.exist():
+    dst_path = ofd_dir / (ofd_name+'_unzip_files')
+    if not unzip_overwrite and dst_path.exists():
         return dst_path
     # 创建临时zip文件
     temp = NamedTemporaryFile(suffix=".zip", dir=ofd_dir, delete=False)

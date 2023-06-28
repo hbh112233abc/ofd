@@ -25,19 +25,19 @@ class MultiMedias(CT_MultiMedia):pass
 
 class DocumentRes(Model):
     AttrBaseLoc:ST_Loc = ""
-    NodesMultiMedias:List[CT_MultiMedia] = None
+    NodesMultiMedia:List[CT_MultiMedia] = None
 
 class PublicRes(Model):
     AttrBaseLoc:ST_Loc = ""
-    NodesFonts:List[CT_Font] = Field(default_factory=lambda:[])
+    NodesFont:List[CT_Font] = Field(default_factory=lambda:[])
 
 
 class CompositeGraphicUnit(CT_VectorG):pass
 
 class Res(Model):
     AttrBaseLoc:ST_Loc = ""
-    DomsColorSpaces: Optional[List[ColorSpace]] = None
-    DomsDrawParams: Optional[List[DrawParam]] = None
-    DomsFonts: Optional[List[Font]] = None
-    DomsMultiMediass: Optional[List[MultiMedias]] = None
-    DomsCompositeGraphicUnits: Optional[List[CompositeGraphicUnit]] = None
+    NodesColorSpace: Optional[List[ColorSpace]] = None
+    NodesDrawParam: Optional[List[DrawParam]] = None
+    NodesFont: Optional[List[Font]] = None
+    NodesMultiMedias: Optional[List[MultiMedias]] = None
+    NodesCompoiteGraphicUnits: Optional[List[CompositeGraphicUnit]] = None

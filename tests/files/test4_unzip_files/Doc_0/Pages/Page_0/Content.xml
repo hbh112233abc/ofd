@@ -1,2 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ofd:Page xmlns:ofd="http://www.ofdspec.org/2016"><ofd:Content><ofd:Layer ID="2"><ofd:TextObject ID="4" Boundary="161.8015 272.1008 5.573 4.9565" Font="3" Size="4.9565"><ofd:TextCode X="-0.0036" Y="4.251">—</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="5" Boundary="168.4628 272.0586 3.4625 4.9565" Font="3" Size="4.9565"><ofd:TextCode X="0.7435" Y="4.251">1</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="6" Boundary="173.4157 272.1008 6.32 4.9565" Font="3" Size="4.9565"><ofd:TextCode X="0.7435" Y="4.251">—</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="8" CTM="0.6 0 0 1 0 0" Boundary="36.216 72.0372 115.5137 19.05" Font="7" Size="19.05"><ofd:FillColor Value="255 0 0"/><ofd:TextCode X="2.8575" Y="16.2278" DeltaX="g 9 18.9793">福建省人民政府办公厅</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="9" CTM="0.6 0 0 1 0 0" Boundary="151.7121 72.0372 24.5425 19.05" Font="7" Size="19.05"><ofd:FillColor Value="255 0 0"/><ofd:TextCode X="0.0175" Y="16.2278" DeltaX="18.9793">文件</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="11" Boundary="78.9965 108.3662 18.3777 5.6268" Font="10" Size="5.6268"><ofd:TextCode X="0.844" Y="4.8331" DeltaX="5.7996 5.7572">闽政办</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="12" Boundary="96.3531 108.3662 6.2036 5.6268" Font="10" Size="5.6268"><ofd:TextCode X="0.844" Y="4.8331">〔</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="13" Boundary="102.1106 108.3662 12.493 5.6268" Font="10" Size="5.6268"><ofd:TextCode X="0.844" Y="4.8331" DeltaX="g 3 2.8784">2021</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="14" Boundary="113.7098 108.3662 4.4926 5.6268" Font="10" Size="5.6268"><ofd:TextCode X="0.844" Y="4.8331">〕</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="15" Boundary="119.4673 108.3662 6.8595 5.6268" Font="10" Size="5.6268"><ofd:TextCode X="0.844" Y="4.8331" DeltaX="2.8784">55</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="16" Boundary="126.7061 108.3662 6.6269 5.6268" Font="10" Size="5.6268"><ofd:TextCode X="0.844" Y="4.8331">号</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="17" Boundary="62.3541 141.1356 88.2526 7.0732" Font="7" Size="7.0732"><ofd:TextCode X="1.061" Y="6.0149" DeltaX="g 11 7.1967">福建省人民政府办公厅关于</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="18" Boundary="48.0032 151.6344 116.9864 7.0732" Font="7" Size="7.0732"><ofd:TextCode X="1.061" Y="6.0149" DeltaX="g 15 7.1967">进一步强化农村建房安全管理的通知</ofd:TextCode></ofd:TextObject><ofd:PathObject ID="19" Boundary="28.1234 117.1046 156.7427 0.762" LineWidth="0.762" Join="Bevel"><ofd:StrokeColor Value="255 0 0"/><ofd:AbbreviatedData>M 0.381 0.381 L 156.3617 0.381 </ofd:AbbreviatedData></ofd:PathObject><ofd:TextObject ID="20" Boundary="27.162 174.1664 158.0726 5.468" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 g 2 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.588 5.6301 5.588 5.6301">各市、县（区）人民政府，平潭综合实验区管委会，省人民政府</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="21" Boundary="27.162 184.6648 20.1927 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879">各部门、</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="22" Boundary="49.5986 184.6648 90.8877 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879">各直属机构，各大企业，各高等院校</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="23" Boundary="139.3031 184.6648 2.9281 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">：</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="24" Boundary="38.3803 195.1636 147.3997 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 8 5.6301 5.5879 g 7 5.6301 5.5879 g 3 5.6301">为深入学习贯彻习近平总书记关于安全生产的重要论述和来</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="25" Boundary="27.162 205.7047 79.6404 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 8 5.6301">闽考察重要讲话精神，加快形成</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="26" Boundary="105.902 205.7047 6.7028 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">“</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="27" Boundary="111.5323 205.7047 62.556 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 5 5.6301">全覆盖巡查、常态化监管</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="28" Boundary="173.4236 205.7047 3.7571 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">”</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="29" Boundary="179.054 205.7047 6.4382 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">的</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="30" Boundary="27.162 216.2032 23.4344 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301">农村建房</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="31" Boundary="48.2865 216.2032 5.6092 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">（</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="32" Boundary="53.8744 216.2032 79.4924 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301 5.5879 g 7 5.6301 5.5879 5.6301">包含新改扩建村民住宅和非住宅</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="33" Boundary="132.6144 216.2032 4.3745 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">）</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="34" Boundary="136.8477 216.2032 45.6657 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301 5.5879 g 3 5.6301">安全管理长效机制</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="35" Boundary="181.8903 216.2032 3.1397 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">，</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="36" Boundary="27.162 226.7019 29.1174 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301">进一步强化</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="37" Boundary="55.2715 226.7019 6.7028 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">“</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="38" Boundary="60.9016 226.7019 12.4564 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.6301">两违</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="39" Boundary="72.1623 226.7019 3.7571 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">”</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="40" Boundary="77.7927 226.7019 107.9605 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 8 5.6301 5.5879 g 4 5.6301">综合治理，保障农民合法建房需求，严防发</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="41" Boundary="27.162 237.2431 65.0288 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 6 5.6301">生农村建房群死群伤事故，</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="42" Boundary="94.6836 237.2431 53.7686 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 4 5.6301">经省委、省政府研究，</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="43" Boundary="150.9448 237.2431 6.8262 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">现</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="44" Boundary="156.5327 237.2431 6.7733 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919">将</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="45" Boundary="162.1631 237.2431 23.4344 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301">有关事项</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="46" Boundary="27.162 247.7415 25.3642 5.4681" Font="10" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301">通知如下：</ofd:TextCode></ofd:TextObject><ofd:TextObject ID="48" Boundary="38.3803 258.2402 57.2864 5.468" Font="47" Size="5.4681"><ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879">一、压紧压实属地责任</ofd:TextCode></ofd:TextObject></ofd:Layer></ofd:Content></ofd:Page>
+<ofd:Page xmlns:ofd="http://www.ofdspec.org/2016">
+    <ofd:Content>
+        <ofd:Layer ID="2">
+            <ofd:TextObject ID="4" Boundary="161.8015 272.1008 5.573 4.9565" Font="3" Size="4.9565">
+                <ofd:TextCode X="-0.0036" Y="4.251">—</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="5" Boundary="168.4628 272.0586 3.4625 4.9565" Font="3" Size="4.9565">
+                <ofd:TextCode X="0.7435" Y="4.251">1</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="6" Boundary="173.4157 272.1008 6.32 4.9565" Font="3" Size="4.9565">
+                <ofd:TextCode X="0.7435" Y="4.251">—</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="8" CTM="0.6 0 0 1 0 0" Boundary="36.216 72.0372 115.5137 19.05" Font="7" Size="19.05">
+                <ofd:FillColor Value="255 0 0"/>
+                <ofd:TextCode X="2.8575" Y="16.2278" DeltaX="g 9 18.9793">福建省人民政府办公厅</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="9" CTM="0.6 0 0 1 0 0" Boundary="151.7121 72.0372 24.5425 19.05" Font="7" Size="19.05">
+                <ofd:FillColor Value="255 0 0"/>
+                <ofd:TextCode X="0.0175" Y="16.2278" DeltaX="18.9793">文件</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="11" Boundary="78.9965 108.3662 18.3777 5.6268" Font="10" Size="5.6268">
+                <ofd:TextCode X="0.844" Y="4.8331" DeltaX="5.7996 5.7572">闽政办</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="12" Boundary="96.3531 108.3662 6.2036 5.6268" Font="10" Size="5.6268">
+                <ofd:TextCode X="0.844" Y="4.8331">〔</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="13" Boundary="102.1106 108.3662 12.493 5.6268" Font="10" Size="5.6268">
+                <ofd:TextCode X="0.844" Y="4.8331" DeltaX="g 3 2.8784">2021</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="14" Boundary="113.7098 108.3662 4.4926 5.6268" Font="10" Size="5.6268">
+                <ofd:TextCode X="0.844" Y="4.8331">〕</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="15" Boundary="119.4673 108.3662 6.8595 5.6268" Font="10" Size="5.6268">
+                <ofd:TextCode X="0.844" Y="4.8331" DeltaX="2.8784">55</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="16" Boundary="126.7061 108.3662 6.6269 5.6268" Font="10" Size="5.6268">
+                <ofd:TextCode X="0.844" Y="4.8331">号</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="17" Boundary="62.3541 141.1356 88.2526 7.0732" Font="7" Size="7.0732">
+                <ofd:TextCode X="1.061" Y="6.0149" DeltaX="g 11 7.1967">福建省人民政府办公厅关于</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="18" Boundary="48.0032 151.6344 116.9864 7.0732" Font="7" Size="7.0732">
+                <ofd:TextCode X="1.061" Y="6.0149" DeltaX="g 15 7.1967">进一步强化农村建房安全管理的通知</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:PathObject ID="19" Boundary="28.1234 117.1046 156.7427 0.762" LineWidth="0.762" Join="Bevel">
+                <ofd:StrokeColor Value="255 0 0"/>
+                <ofd:AbbreviatedData>M 0.381 0.381 L 156.3617 0.381 </ofd:AbbreviatedData>
+            </ofd:PathObject>
+            <ofd:TextObject ID="20" Boundary="27.162 174.1664 158.0726 5.468" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 g 2 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.588 5.6301 5.588 5.6301">各市、县（区）人民政府，平潭综合实验区管委会，省人民政府</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="21" Boundary="27.162 184.6648 20.1927 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879">各部门、</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="22" Boundary="49.5986 184.6648 90.8877 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879">各直属机构，各大企业，各高等院校</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="23" Boundary="139.3031 184.6648 2.9281 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">：</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="24" Boundary="38.3803 195.1636 147.3997 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 8 5.6301 5.5879 g 7 5.6301 5.5879 g 3 5.6301">为深入学习贯彻习近平总书记关于安全生产的重要论述和来</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="25" Boundary="27.162 205.7047 79.6404 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 8 5.6301">闽考察重要讲话精神，加快形成</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="26" Boundary="105.902 205.7047 6.7028 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">“</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="27" Boundary="111.5323 205.7047 62.556 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 5 5.6301">全覆盖巡查、常态化监管</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="28" Boundary="173.4236 205.7047 3.7571 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">”</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="29" Boundary="179.054 205.7047 6.4382 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">的</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="30" Boundary="27.162 216.2032 23.4344 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301">农村建房</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="31" Boundary="48.2865 216.2032 5.6092 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">（</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="32" Boundary="53.8744 216.2032 79.4924 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301 5.5879 g 7 5.6301 5.5879 5.6301">包含新改扩建村民住宅和非住宅</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="33" Boundary="132.6144 216.2032 4.3745 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">）</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="34" Boundary="136.8477 216.2032 45.6657 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301 5.5879 g 3 5.6301">安全管理长效机制</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="35" Boundary="181.8903 216.2032 3.1397 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">，</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="36" Boundary="27.162 226.7019 29.1174 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301">进一步强化</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="37" Boundary="55.2715 226.7019 6.7028 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">“</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="38" Boundary="60.9016 226.7019 12.4564 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.6301">两违</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="39" Boundary="72.1623 226.7019 3.7571 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">”</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="40" Boundary="77.7927 226.7019 107.9605 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 8 5.6301 5.5879 g 4 5.6301">综合治理，保障农民合法建房需求，严防发</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="41" Boundary="27.162 237.2431 65.0288 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 6 5.6301">生农村建房群死群伤事故，</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="42" Boundary="94.6836 237.2431 53.7686 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 4 5.6301 5.5879 g 4 5.6301">经省委、省政府研究，</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="43" Boundary="150.9448 237.2431 6.8262 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">现</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="44" Boundary="156.5327 237.2431 6.7733 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919">将</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="45" Boundary="162.1631 237.2431 23.4344 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="g 3 5.6301">有关事项</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="46" Boundary="27.162 247.7415 25.3642 5.4681" Font="10" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301">通知如下：</ofd:TextCode>
+            </ofd:TextObject>
+            <ofd:TextObject ID="48" Boundary="38.3803 258.2402 57.2864 5.468" Font="47" Size="5.4681">
+                <ofd:TextCode X="0.8202" Y="4.6919" DeltaX="5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879 5.6301 5.5879">一、压紧压实属地责任</ofd:TextCode>
+            </ofd:TextObject>
+        </ofd:Layer>
+    </ofd:Content>
+</ofd:Page>

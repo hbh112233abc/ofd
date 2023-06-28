@@ -96,11 +96,6 @@ class Extension:
     pass
 
 
-
-class CT_Composite(Model):
-    AttrResourceID:ST_RefID = ''
-
-
 class Keyword(Model):
     Text: str = ""
     def parse(self,el:DOM):

@@ -7,7 +7,7 @@ from typing import List, Optional
 from pydantic import Field
 
 from .classes import *
-from .page import CT_PageArea, CT_TemplatePage
+from .page import CT_PageArea, CT_TemplatePage,Page as PageModel
 from .action import Action
 from .outline import OutlineElem
 from .permission import CT_Permission
@@ -30,15 +30,29 @@ class Page(Model):
     AttrID:ST_ID = 0
     AttrBaseLoc:ST_Loc = ""
 
+class Pages(Model):
+    NodesPage:List[Page] = Field(None,min_items=1)
+
 class Document(Model):
     DomCommonData:CommonData = Field(default_factory=lambda:CommonData())
-    DomsPages:List[Page] = Field(default_factory=lambda:[],min_items=1)
-    DomsOutlines:Optional[List[OutlineElem]] = None
-    DomPermissions:Optional[CT_Permission] = None
-    DomsActions:Optional[List[Action]] = None
-    DomVPreferences: Optional[CT_VPreferences] = None
-    DomsBookmarks:Optional[List[Bookmark]] = None
+    DomPages:Pages = Field(default_factory=lambda:Pages())
+    NodesOutline:Optional[List[OutlineElem]] = None
+    DomPermission:Optional[CT_Permission] = None
+    NodesAction:Optional[List[Action]] = None
+    DomVPreference: Optional[CT_VPreferences] = None
+    NodesBookmark:Optional[List[Bookmark]] = None
     DomAttachments:Optional[ST_Loc] = None
     DomAnnotations:Optional[ST_Loc] = None
     DomCustomTags:Optional[ST_Loc] = None
     DomExtensions:Optional[ST_Loc] = None
+
+    def pages(self):
+        if self.__children__.get('pages'):
+            return self.__children__.get('pages')
+
+        self.__children__['pages'] = []
+        for page in self.DomPages.NodesPage:
+            loc = self.xml.parent / page.AttrBaseLoc
+            self.__children__['pages'].append(PageModel(loc))
+
+        return self.__children__['pages']

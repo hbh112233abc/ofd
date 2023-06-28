@@ -12,9 +12,13 @@ class DOM:
         self.el = el
 
     def query(self,tag:str)->Element:
+        tags = tag.split('.')
         for child in self.el:
-            if tag in child.tag:
-                return DOM(child)
+            if tags[0] in child.tag:
+                if len(tags) == 1:
+                    return DOM(child)
+                parent = DOM(child)
+                return parent.query('.'.join(tags[1:]))
 
     def query_text(self,tag:str)->str:
         child = self.query(tag)

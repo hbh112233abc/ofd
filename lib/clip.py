@@ -13,6 +13,6 @@ class Area(Model):
     DomText:CT_Text = None
 
 class CT_Clip(Model):
-    DomsArea:List[Area] = Field(default_factory=lambda:[],min_items=1)
+    NodesArea:List[Area] = Field(default_factory=lambda:[],min_items=1)
 
 class Clip(CT_Clip):pass

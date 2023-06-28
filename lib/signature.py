@@ -30,7 +30,7 @@ class References(Model):
     NodesReference: List[Reference] = Field(None,min_items=1)
 
 
-class SignedInfo:
+class SignedInfo(Model):
     DomProvider: Provider = Field(default_factory=lambda: {})
     DomSignatureMethod: Optional[str] = None
     DomSignatureDateTime: Optional[str] = None
@@ -42,7 +42,7 @@ class SignType(str,Enum):
     Seal = "Seal" #签章
     Sign = "Sign" #纯数字签名
 
-class Signature:
+class Signature(Model):
     AttrID: int = 0
     AttrType: Optional[SignType] = SignType.Seal
     AttrBaseLoc:ST_Loc = ""
@@ -50,5 +50,5 @@ class Signature:
     DomSignedValue: ST_Loc = ""
 
 class Signatures(Model):
-    DomMaxSignId:Optional[int] = Field(1,gt=0)
-    NodesSignature:Optional[List[Signature]] = None
+    DomMaxSignId:int = Field(1,gt=0)
+    NodesSignature:List[Signature] = None

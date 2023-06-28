@@ -11,7 +11,7 @@ class Page(Model):
     DomFileLoc: ST_Loc = ""
 
 class Annotations(Model):
-    NodesPages:Optional[List[Page]] = []
+    NodesPage:Optional[List[Page]] = []
 
 class AnnotType(str,Enum):
     Link = "Link"
@@ -35,11 +35,11 @@ class Annot(Model):
     AttrNoRotate:Optional[bool] = None
     AttrReadOnly:Optional[bool] = None
     DomRemark:Optional[str] = None
-    DomsParameters: Optional[List[Parameter]] = None
+    NodesParameter: Optional[List[Parameter]] = None
     DomAppearance:CT_PageBlock = None
 
 
 
 
 class PageAnnot(Model):
-    NodesAnnots: List[Annot] = []
+    NodesAnnot: List[Annot] = []

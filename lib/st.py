@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'hbh112233abc@163.com'
 
+import re
 from xml.etree.ElementTree import Element
 from pydantic import BaseModel,Field
 

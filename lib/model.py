@@ -10,13 +10,31 @@ from lxml import etree
 from pydantic import BaseModel
 from pydantic.fields import ModelField
 
-from .util import read_xml,val,FILE_DOC_NS
+from .util import boolVal, intVal, read_xml,FILE_DOC_NS
 from .dom import DOM
 
 TAG_PREFIX = f"{{{FILE_DOC_NS['ofd']}}}"
 
+def val(v:Any,tp:object)->Any:
+    if v is None:
+        return v
+    if isinstance(v,(DOM,Element)):
+        try:
+            return tp(v)
+        except Exception as e:
+            breakpoint()
+            print("Warning:",e, v, tp)
+            v = v.text
+    if isinstance(tp,bool):
+        return boolVal(v)
+    elif isinstance(tp,int):
+        return intVal(v)
+    else:
+        return tp(v)
+
 class Model(BaseModel):
-    XMLPath:Optional[str] = ""
+    xml = ""
+    __children__ = {}
     def __init__(self,*args,**kwargs):
         super().__init__(**kwargs)
         if len(args) == 1 and isinstance(args[0],(Element,DOM,Path,str)):
@@ -28,7 +46,7 @@ class Model(BaseModel):
     def decode(self, e:Union[Path,DOM,Element]):
         if isinstance(e,(str,Path)):
             dom = read_xml(e)
-            self.XMLPath = e
+            self.xml = e
         elif isinstance(e,Element):
             dom = DOM(e)
         elif isinstance(e,DOM):
@@ -40,10 +58,6 @@ class Model(BaseModel):
         for key, field in fields.items():
             if key.startswith("Attr"):
                 self.__Attr(key,field,dom)
-                continue
-
-            if key.startswith("Doms"):
-                self.__Doms(key,field,dom)
                 continue
 
             if key.startswith("Dom"):
@@ -74,29 +88,12 @@ class Model(BaseModel):
     def __items(self,key:str,field:ModelField,dom:DOM)->list:
         return [val(el,field.type_) for el in dom.query_all(key)]
 
-    def __Doms(self,key:str,field:ModelField,dom:DOM):
-        k = key[4:]
-        dom = dom.query(k)
-        if not dom:
-            return
-        k = field.type_.schema()['title']
-        items = self.__items(k,field,dom)
-        if items:
-            setattr(
-                self,
-                key,
-                items
-            )
-
     def __Nodes(self,key:str,field:ModelField,dom:DOM):
-        k = field.type_.schema()['title']
+        k = key[5:]
         items = self.__items(k,field,dom)
-        if items:
-            setattr(
-                self,
-                key,
-                items
-            )
+        if not items:
+            return
+        setattr(self,key,items)
 
     def encode(self,tag:str=""):
         if not tag:
@@ -114,13 +111,6 @@ class Model(BaseModel):
                     props[k] = str(v)
                 continue
 
-            if key.startswith("Doms"):
-                k = key[4:]
-                doms = getattr(self,key)
-                if doms is not None:
-                    children.append(self.__make_xml(doms,k))
-                continue
-
             if key.startswith("Dom"):
                 k = key[3:]
                 dom = getattr(self,key)
@@ -132,7 +122,7 @@ class Model(BaseModel):
                 k = key[5:]
                 doms = getattr(self,key)
                 if doms is not None:
-                    children.append(self.__make_xml(doms))
+                    children.append(self.__make_xml(doms,k))
                 continue
 
             if key == "Text":

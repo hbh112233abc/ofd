@@ -14,8 +14,8 @@ class CT_OutlineElem(Model):
     AttrTitle:str = ''
     AttrCount:Optional[int] = 0
     AttrExpanded:Optional[bool] = True
-    DomsActions:Optional[List[Action]] = None
-    DomsOutlineElem:Optional[List["CT_OutlineElem"]]= None
+    NodesAction:Optional[List[Action]] = None
+    NodesOutlineElem:Optional[List["CT_OutlineElem"]]= None
 
 
 class OutlineElem(CT_OutlineElem):pass

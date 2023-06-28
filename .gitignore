@@ -4,3 +4,4 @@ poetry.lock
 logs/
 lib/__pycache__/
 tests/__pycache__/
+.vscode/

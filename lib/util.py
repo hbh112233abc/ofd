@@ -32,21 +32,7 @@ def intVal(i:Union[None,int,str])->int:
         return None
     return int(i)
 
-def val(v:Any,tp:object)->Any:
-    if v is None:
-        return v
-    if isinstance(v,(DOM,Element)):
-        try:
-            return tp(v)
-        except Exception as e:
-            print("warning:",e, v, tp)
-            v = v.text
-    if isinstance(tp,bool):
-        return boolVal(v)
-    elif isinstance(tp,int):
-        return intVal(v)
-    else:
-        return tp(v)
+
 
 def check_doc_ns(node:Element)->None:
     if node.nsmap != FILE_DOC_NS:
@@ -60,8 +46,8 @@ def read_xml(xml:Path)->DOM:
 
     if xml.suffix != '.xml':
         raise TypeError("XML file ext error")
-
-    tree = etree.parse(xml)
+    parser = etree.XMLParser(remove_blank_text=True)
+    tree = etree.parse(xml,parser)
     root = tree.getroot()
     check_doc_ns(root)
     return DOM(root)

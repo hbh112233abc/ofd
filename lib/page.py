@@ -2,16 +2,17 @@
 # -*- coding: utf-8 -*-
 __author__ = 'hbh112233abc@163.com'
 
-from lib.action import Action
-from lib.text import CT_Text
+from .action import Action
+from .text import CT_Text
 from .classes import *
 from .image import CT_Image
+from .draw import CT_Composite
 
 class CT_PageBlock(Model):
-    NodesTextObject:List[CT_Text] = Field(default_factory=lambda:[])
-    NodesPathObject:List["CT_Path"] = Field(default_factory=lambda:[])
-    NodesImageObject:List[CT_Image] = Field(default_factory=lambda:[])
-    NodesCompositeObject:List[CT_Composite] = Field(default_factory=lambda:[])
+    NodesTextObject:Optional[List[CT_Text]] = Field(default_factory=lambda:[])
+    NodesPathObject:Optional[List["CT_Path"]] = Field(default_factory=lambda:[])
+    NodesImageObject:Optional[List[CT_Image]] = Field(default_factory=lambda:[])
+    NodesCompoiteObject:Optional[List[CT_Composite]] = Field(default_factory=lambda:[])
 
 
 class LayerType(str,Enum):
@@ -19,19 +20,18 @@ class LayerType(str,Enum):
     Foreground = "Foreground"
     Background = "Background"
 
-class CT_Layer(BaseModel):
+class CT_Layer(Model):
     AttrType:Optional[LayerType] = "Body"
     AttrDrawParam:Optional[ST_RefID] = None
     NodesPageBlock:Optional[List[CT_PageBlock]] = None
 
 
-class Layer(Model):
-    AttrLayerId:str = ""
-    AttrPageBlock:CT_PageBlock = Field(default_factory=lambda:CT_PageBlock())
+class Layer(CT_PageBlock):
+    AttrID:str = ""
 
 
 class Content(Model):
-    DomLayer:Layer = Field(default_factory=lambda:Layer())
+    NodesLayer:List[Layer] = Field(None,min_items=1)
 
 
 class Template(Model):
@@ -52,14 +52,17 @@ class CT_PageArea(Model):
     DomApplicationBox:Optional[ST_Box] = None
     DomContentBox:Optional[ST_Box] = None
     DomBleedBox:Optional[ST_Box] = None
+    DomCropBox:Optional[ST_Box] = None
 
 
 class PageArea(CT_PageArea):pass
 
-class Page(BaseModel):
-    ID:ST_ID = 0
-    NodesTemplate:List[Template] = None
+class PageRes(Model):
+    Text:ST_Loc = None
+
+class Page(Model):
+    NodesTemplate:Optional[List[Template]] = None
     DomArea:Optional[CT_PageArea] = None
-    NodesPageRes:Optional[ST_Loc] = None
-    DomContent:Optional[List[CT_Layer]] = None
-    DomsActions:Optional[List[Action]] = None
+    NodesPageRe:Optional[PageRes] = None
+    DomContent:Optional[Content] = None
+    NodesAction:Optional[List[Action]] = None

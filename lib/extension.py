@@ -16,10 +16,10 @@ class CT_Extension(Model):
     AttrCompany:Optional[str] = None
     AttrAppVersion:Optional[str] = None
     AttrDate:Optional[datetime] = None
-    DomsProperty:List[Property] = None
-    DomsData:List[Any] = None
-    DomsExtendData: List[ST_Loc] = None
+    NodesProperty:List[Property] = None
+    NodesData:List[Any] = None
+    NodesExtendData: List[ST_Loc] = None
 
 
 class Extensions(Model):
-    NodesExtensions:List[Extension] = None
+    NodesExtenions:List[Extension] = None

@@ -28,8 +28,8 @@ class CT_GraphicUnit(Model):
     AttrDasOffset:Optional[NonNegativeFloat] = 0
     AttrDashPattern:Optional[ST_Array] = None
     AttrAlpha:Optional[int] = Field(255,ge=0,le=255)
-    DomsActions: Optional[List["Action"]] = None
-    DomsClips: Optional[List["Clip"]] = None
+    NodesAction: Optional[List["Action"]] = None
+    NodesClip: Optional[List["Clip"]] = None
 
 
 class CT_DrawParam(Model):
@@ -42,3 +42,6 @@ class CT_DrawParam(Model):
     AttrMiterLimit:Optional[NonNegativeFloat] = 3.528
     DomFillColor:Optional[CT_Color] = None
     DomStrokeColor:Optional[CT_Color] = None
+
+class CT_Composite(CT_GraphicUnit):
+    AttrResourceID:ST_RefID = ''
