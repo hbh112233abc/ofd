@@ -22,7 +22,6 @@ def val(v:Any,tp:object)->Any:
         try:
             return tp(v)
         except Exception as e:
-            breakpoint()
             print("Warning:",e, v, tp)
             v = v.text
     if isinstance(tp,bool):
