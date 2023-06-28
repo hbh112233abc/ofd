@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'hbh112233abc@163.com'
 
-from .action import Action
+from .action import Actions
 from .text import CT_Text
 from .classes import *
 from .image import CT_Image
@@ -12,7 +12,7 @@ class CT_PageBlock(Model):
     NodesTextObject:Optional[List[CT_Text]] = Field(default_factory=lambda:[])
     NodesPathObject:Optional[List["CT_Path"]] = Field(default_factory=lambda:[])
     NodesImageObject:Optional[List[CT_Image]] = Field(default_factory=lambda:[])
-    NodesCompoiteObject:Optional[List[CT_Composite]] = Field(default_factory=lambda:[])
+    NodesCompositeObject:Optional[List[CT_Composite]] = Field(default_factory=lambda:[])
 
 
 class LayerType(str,Enum):
@@ -63,6 +63,6 @@ class PageRes(Model):
 class Page(Model):
     NodesTemplate:Optional[List[Template]] = None
     DomArea:Optional[CT_PageArea] = None
-    NodesPageRe:Optional[PageRes] = None
+    DomPageRes:Optional[PageRes] = None
     DomContent:Optional[Content] = None
-    NodesAction:Optional[List[Action]] = None
+    DomActions:Optional[Actions] = None

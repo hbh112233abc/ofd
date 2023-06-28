@@ -20,7 +20,7 @@ class CT_MultiMedia(Model):
     # select ↓
     AttrFormat:Optional[str] = ""
 
-class MultiMedias(CT_MultiMedia):pass
+class MultiMedia(CT_MultiMedia):pass
 
 
 class DocumentRes(Model):
@@ -39,5 +39,5 @@ class Res(Model):
     NodesColorSpace: Optional[List[ColorSpace]] = None
     NodesDrawParam: Optional[List[DrawParam]] = None
     NodesFont: Optional[List[Font]] = None
-    NodesMultiMedias: Optional[List[MultiMedias]] = None
-    NodesCompoiteGraphicUnits: Optional[List[CompositeGraphicUnit]] = None
+    NodesMultiMedia: Optional[List[MultiMedia]] = None
+    NodesCompoiteGraphicUnit: Optional[List[CompositeGraphicUnit]] = None

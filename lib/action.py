@@ -71,3 +71,6 @@ class CT_Action(Model):
     DomMovie:Movie = None #播放视频
 
 class Action(CT_Action):pass
+
+class Actions(Model):
+    NodesAction:List[Action] = Field(default_factory=lambda:[])

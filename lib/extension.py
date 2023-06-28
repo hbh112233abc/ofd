@@ -22,4 +22,4 @@ class CT_Extension(Model):
 
 
 class Extensions(Model):
-    NodesExtenions:List[Extension] = None
+    NodesExtension:List[CT_Extension] = None

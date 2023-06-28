@@ -59,4 +59,4 @@ class CT_Text(Model):
     DomFillColor:Optional[CT_Color] = Field(default_factory=lambda:CT_Color())
     DomStrokeColor:Optional[CT_Color] = Field(default_factory=lambda:CT_Color())
     NodesTextCode:List[TextCode] = Field(default_factory=lambda:[])
-    NodesCGTranform:List[CGTransform] = Field(default_factory=lambda:[])
+    NodesCGTransform:List[CGTransform] = Field(default_factory=lambda:[])

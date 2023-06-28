@@ -16,6 +16,12 @@ class CapEnum(str,Enum):
     Round = "Round"
     Square = "Square"
 
+class Actions(Model):
+    NodesAction:List["Action"] = Field(default_factory=lambda:[])
+
+class Clips(Model):
+    NodesClip:List["Clip"] = Field(default_factory=lambda:[])
+
 class CT_GraphicUnit(Model):
     AttrBoundary:ST_Box = None
     AttrName:Optional[str] = ""
@@ -28,8 +34,8 @@ class CT_GraphicUnit(Model):
     AttrDasOffset:Optional[NonNegativeFloat] = 0
     AttrDashPattern:Optional[ST_Array] = None
     AttrAlpha:Optional[int] = Field(255,ge=0,le=255)
-    NodesAction: Optional[List["Action"]] = None
-    NodesClip: Optional[List["Clip"]] = None
+    DomActions: Optional[Actions] = None
+    DomClips: Optional[List["Clip"]] = None
 
 
 class CT_DrawParam(Model):

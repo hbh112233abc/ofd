@@ -4,5 +4,5 @@ __author__ = 'hbh112233abc@163.com'
 
 from tests import test_page,test_ofd,test_document
 
-# test_ofd.test_ofd()
-test_document.test_document()
+test_ofd.test_ofd()
+# test_document.test_document()

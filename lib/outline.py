@@ -7,14 +7,13 @@ from typing import List, Optional
 
 from .classes import *
 from .model import Model
-from .action import Action
-
+from .action import Actions
 
 class CT_OutlineElem(Model):
     AttrTitle:str = ''
     AttrCount:Optional[int] = 0
     AttrExpanded:Optional[bool] = True
-    NodesAction:Optional[List[Action]] = None
+    DomActions:Optional[Actions] = None
     NodesOutlineElem:Optional[List["CT_OutlineElem"]]= None
 
 

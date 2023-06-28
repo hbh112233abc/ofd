@@ -16,6 +16,9 @@ class CustomData(Model):
     AttrName: str = ""
     Text: str = ""
 
+class CustomDatas(Model):
+    NodesCustomData:List[CustomData] = Field(default_factory=lambda:[])
+
 class DocInfo(Model):
     DomDocId:Optional[str] = Field(default_factory=lambda:uuid4().hex)
     DomTitle:Optional[str] = None
@@ -29,21 +32,21 @@ class DocInfo(Model):
     DomKeywords:Optional[List[Keyword]] = Field(default_factory=lambda:[])
     DomCreator:Optional[str] = None
     DomCreatorVersion:Optional[str] = None
-    NodesCutomDatas:Optional[List[CustomData]] = Field(default_factory=lambda:[])
+    DomCustomDatas:Optional[CustomDatas] = None
 
 
 class DocBody(Model):
     DomDocInfo:DocInfo = None
     DomDocRoot:ST_Loc = ""
-    NodesVerions:Optional[List[Version]] = Field(default_factory=lambda:[])
+    DomVersions:Optional[List[Version]] = Field(default_factory=lambda:[])
     DomSignatures:Optional[ST_Loc] = None
 
     def versions(self)->List[DocVersion]:
         if self.__children__.get('versions'):
             return self.__children__.get('versions')
         self.__children__['versions'] = []
-        for version in self.NodesVerions:
-            doc_xml = self.__xml__.parent / version.AttrBaseLoc
+        for version in self.DomVersions:
+            doc_xml = self.xml.parent / version.AttrBaseLoc
             doc = DocVersion(doc_xml)
             self.__children__['versions'].append(doc)
 
@@ -55,10 +58,10 @@ class DocBody(Model):
         self.__children__['signatures'] = []
         if not self.DomSignatures:
             return []
-        sign_xml = self.__xml__.parent / self.DomSignatures
+        sign_xml = self.xml.parent / self.DomSignatures
         signs = Signatures(sign_xml)
         for loc in signs.NodesSignature:
-            loc = signs.__xml__.parent / loc
+            loc = signs.xml.parent / loc
             sign = Signature(loc)
             self.__children__['signatures'].append(sign)
 

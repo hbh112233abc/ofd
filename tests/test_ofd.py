@@ -9,7 +9,7 @@ from lib.ofd import OFD
 def test_ofd():
     ofd_file = Path.cwd() / 'tests' / 'files' / 'test3_unzip_files' / 'OFD.xml'
     ofd = OFD(ofd_file)
-    print(ofd)
+    ofd.show()
     assert ofd is not None
     documents = ofd.documents()
     assert len(documents) > 0

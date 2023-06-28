@@ -10,6 +10,9 @@ from lxml import etree
 from pydantic import BaseModel
 from pydantic.fields import ModelField
 
+from rich import print
+from rich.tree import Tree
+
 from .util import boolVal, intVal, read_xml,FILE_DOC_NS
 from .dom import DOM
 
@@ -33,14 +36,57 @@ def val(v:Any,tp:object)->Any:
 
 class Model(BaseModel):
     xml = ""
+    dom:object = None
     __children__ = {}
     def __init__(self,*args,**kwargs):
         super().__init__(**kwargs)
         if len(args) == 1 and isinstance(args[0],(Element,DOM,Path,str)):
             self.decode(args[0])
-
     def __repr__(self):
-        return f"<{self.__class__.__name__} {super().__str__()}>"
+        return self.__str__()
+    def __str__(self):
+        repr = f'<{self.__class__.__name__}'
+        for k,v in self.__dict__.items():
+            if k in ('dom', 'xml'):
+                continue
+            repr += f" {k}={v.__str__()}"
+        repr += '>'
+        return repr
+
+    def __tree__(self):
+        tree = Tree(f"[b green]{self.__class__.__name__}[/]")
+        for k,v in self.__dict__.items():
+            if k in ('dom', 'xml'):
+                continue
+            color = 'white'
+            if k.startswith("Attr"):
+                k = k[4:]
+                color = 'deep_sky_blue4'
+            elif k.startswith("Dom"):
+                k = k[3:]
+                color = 'yellow'
+            elif k.startswith("Nodes"):
+                k = k[5:]
+                color = 'cyan'
+            node = f'[b {color}]{k}[/]'
+            if isinstance(v,Model):
+                tree.add(v.__tree__())
+            elif isinstance(v,list):
+                sub_tree = tree.add(node)
+                for item in v:
+                    if isinstance(item,Model):
+                        sub_tree.add(item.__tree__())
+                    else:
+                        sub_tree.add(item)
+            else:
+                node += f": {v}"
+                tree.add(node)
+        return tree
+
+    def show(self):
+        tree = self.__tree__()
+        print(tree)
+
 
     def decode(self, e:Union[Path,DOM,Element]):
         if isinstance(e,(str,Path)):
@@ -52,31 +98,31 @@ class Model(BaseModel):
             dom = e
         else:
             raise ValueError("Invalid param for parse,must one of [str,Path,Element,DOM]")
-
+        self.dom = dom
         fields = self.__fields__
         for key, field in fields.items():
             if key.startswith("Attr"):
-                self.__Attr(key,field,dom)
+                self.__Attr(key,field)
                 continue
 
             if key.startswith("Dom"):
-                self.__Dom(key,field,dom)
+                self.__Dom(key,field)
                 continue
 
             if key.startswith("Nodes"):
-                self.__Nodes(key,field,dom)
+                self.__Nodes(key,field)
                 continue
 
             if key == "Text":
                 setattr(self,key,dom.text)
 
-    def __Attr(self,key:str,field:ModelField,dom:DOM):
+    def __Attr(self,key:str,field:ModelField):
         k = key[4:]
-        setattr(self,key,val(dom.get(k,field.default),field.type_))
+        setattr(self,key,val(self.dom.get(k,field.default),field.type_))
 
-    def __Dom(self,key:str,field:ModelField,dom:DOM):
+    def __Dom(self,key:str,field:ModelField):
         k = key[3:]
-        el = dom.query(k)
+        el = self.dom.query(k)
         if el is not None:
             setattr(
                 self,
@@ -87,9 +133,9 @@ class Model(BaseModel):
     def __items(self,key:str,field:ModelField,dom:DOM)->list:
         return [val(el,field.type_) for el in dom.query_all(key)]
 
-    def __Nodes(self,key:str,field:ModelField,dom:DOM):
+    def __Nodes(self,key:str,field:ModelField):
         k = key[5:]
-        items = self.__items(k,field,dom)
+        items = self.__items(k,field,self.dom)
         if not items:
             return
         setattr(self,key,items)

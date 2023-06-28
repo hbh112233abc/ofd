@@ -21,7 +21,10 @@ class AnnotType(str,Enum):
     Watermark = "Watermark"
 
 class Parameter(Model):
-    pass
+    Text:str = ""
+
+class Parameters(Model):
+    NodesParameter:List[Parameter] = Field(default_factory=lambda:[],min_items=1)
 
 class Annot(Model):
     AttrID:ST_ID = 0
@@ -35,7 +38,7 @@ class Annot(Model):
     AttrNoRotate:Optional[bool] = None
     AttrReadOnly:Optional[bool] = None
     DomRemark:Optional[str] = None
-    NodesParameter: Optional[List[Parameter]] = None
+    DomParameters: Optional[Parameters] = None
     DomAppearance:CT_PageBlock = None
 
 

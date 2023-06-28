@@ -11,7 +11,7 @@ class Version(Model):
     AttrCurrent:Optional[bool] = False
 
 class Versions(Model):
-    NodesVerions:List[Version] = Field(default_factory=lambda:[],min_items=1)
+    NodesVersion:List[Version] = Field(default_factory=lambda:[],min_items=1)
 
 class File(Model):
     AttrID:int = 0
