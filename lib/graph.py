@@ -68,6 +68,6 @@ class CT_Region(Model):
 class CT_VectorG(Model):
     AttrWidth:float = 0.0
     AttrHeight:float = 0.0
-    DomThumbnail:ST_RefID = None
-    DomSubstitution:ST_RefID = None
+    DomThumbnail:Optional[ST_RefID] = None
+    DomSubstitution:Optional[ST_RefID] = None
     DomContent:CT_PageBlock = None

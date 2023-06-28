@@ -3,13 +3,35 @@
 __author__ = 'hbh112233abc@163.com'
 
 
-from typing import Any, List
+from pathlib import Path
+from typing import Any, List, Union
 from xml.etree.ElementTree import Element
+from lxml import etree
+
+
+from lib.util import check_doc_ns
 
 
 class DOM:
-    def __init__(self,el:Element):
-        self.el = el
+    def __init__(self,el:Union[Element,Path]):
+        if isinstance(self.el,Path):
+            self.read_xml(self.el)
+        else:
+            self.el = el
+
+    def read_xml(self,xml:Path):
+        if isinstance(xml,str):
+            xml = Path(xml)
+        if not xml.exists():
+            raise FileNotFoundError(f"XML file does not exist:{xml}")
+
+        if xml.suffix != '.xml':
+            raise TypeError("XML file ext error")
+        parser = etree.XMLParser(remove_blank_text=True)
+        tree = etree.parse(xml,parser)
+        root = tree.getroot()
+        check_doc_ns(root)
+        self.el = root
 
     def query(self,tag:str)->Element:
         tags = tag.split('.')

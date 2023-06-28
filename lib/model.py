@@ -53,29 +53,30 @@ class Model(BaseModel):
         repr += '>'
         return repr
 
-    def __tree__(self):
-        tree = Tree(f"[b green]{self.__class__.__name__}[/]")
+    def __tree__(self,with_prefix:bool=True,label:str=""):
+        label = label if label else self.__class__.__name__
+        tree = Tree(f"[b green]{label}[/]")
         for k,v in self.__dict__.items():
             if k in ('dom', 'xml'):
                 continue
             color = 'white'
             if k.startswith("Attr"):
-                k = k[4:]
+                k = k[4:] if not with_prefix else k
                 color = 'deep_sky_blue4'
             elif k.startswith("Dom"):
-                k = k[3:]
+                k = k[3:] if not with_prefix else k
                 color = 'yellow'
             elif k.startswith("Nodes"):
-                k = k[5:]
+                k = k[5:] if not with_prefix else k
                 color = 'cyan'
             node = f'[b {color}]{k}[/]'
             if isinstance(v,Model):
-                tree.add(v.__tree__())
+                tree.add(v.__tree__(with_prefix,node))
             elif isinstance(v,list):
                 sub_tree = tree.add(node)
                 for item in v:
                     if isinstance(item,Model):
-                        sub_tree.add(item.__tree__())
+                        sub_tree.add(item.__tree__(with_prefix))
                     else:
                         sub_tree.add(item)
             else:
@@ -83,14 +84,14 @@ class Model(BaseModel):
                 tree.add(node)
         return tree
 
-    def show(self):
-        tree = self.__tree__()
+    def show(self,with_prefix:bool=True):
+        tree = self.__tree__(with_prefix)
         print(tree)
 
 
     def decode(self, e:Union[Path,DOM,Element]):
         if isinstance(e,(str,Path)):
-            dom = read_xml(e)
+            dom = DOM(e)
             self.xml = e
         elif isinstance(e,Element):
             dom = DOM(e)

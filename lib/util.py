@@ -37,17 +37,3 @@ def intVal(i:Union[None,int,str])->int:
 def check_doc_ns(node:Element)->None:
     if node.nsmap != FILE_DOC_NS:
         raise ValueError("XML DOC Root node nsmap error")
-
-def read_xml(xml:Path)->DOM:
-    if isinstance(xml,str):
-        xml = Path(xml)
-    if not xml.exists():
-        raise FileNotFoundError(f"XML file does not exist:{xml}")
-
-    if xml.suffix != '.xml':
-        raise TypeError("XML file ext error")
-    parser = etree.XMLParser(remove_blank_text=True)
-    tree = etree.parse(xml,parser)
-    root = tree.getroot()
-    check_doc_ns(root)
-    return DOM(root)

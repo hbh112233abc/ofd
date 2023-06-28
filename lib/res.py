@@ -8,11 +8,13 @@ from .draw import CT_DrawParam
 from .font import CT_Font
 from .graph import CT_VectorG
 
-class ColorSpace(CT_ColorSpace):pass
+class Fonts(Model):
+    NodesFont:List[CT_Font] = None
+class ColorSpaces(Model):
+    NodesColorSpace:List[CT_ColorSpace] = None
 
-class DrawParam(CT_DrawParam):pass
-
-class Font(CT_Font):pass
+class DrawParams(Model):
+    NodesDrawParam:List[CT_DrawParam] = None
 
 class CT_MultiMedia(Model):
     AttrType:str = ""
@@ -20,24 +22,24 @@ class CT_MultiMedia(Model):
     # select ↓
     AttrFormat:Optional[str] = ""
 
-class MultiMedia(CT_MultiMedia):pass
 
-
-class DocumentRes(Model):
-    AttrBaseLoc:ST_Loc = ""
+class MultiMedias(Model):
     NodesMultiMedia:List[CT_MultiMedia] = None
 
-class PublicRes(Model):
-    AttrBaseLoc:ST_Loc = ""
-    NodesFont:List[CT_Font] = Field(default_factory=lambda:[])
-
-
-class CompositeGraphicUnit(CT_VectorG):pass
+class CompositeGraphicUnits(Model):
+    NodesCompositeGraphicUnit:List[CT_VectorG] = None
 
 class Res(Model):
     AttrBaseLoc:ST_Loc = ""
-    NodesColorSpace: Optional[List[ColorSpace]] = None
-    NodesDrawParam: Optional[List[DrawParam]] = None
-    NodesFont: Optional[List[Font]] = None
-    NodesMultiMedia: Optional[List[MultiMedia]] = None
-    NodesCompoiteGraphicUnit: Optional[List[CompositeGraphicUnit]] = None
+    DomColorSpaces: Optional[ColorSpaces] = None
+    DomDrawParams: Optional[DrawParams] = None
+    DomFonts: Optional[Fonts] = None
+    DomMultiMedias: Optional[MultiMedias] = None
+    DomCompositeGraphicUnits: Optional[CompositeGraphicUnits] = None
+
+    def fonts(self):
+        if not self.__children__.get('fonts'):
+            self.__children__['fonts'] = {}
+            for font in self.DomFonts.NodesFont:
+                self.__children__['fonts'][font.AttrID] = self.xml.parent / self.AttrBaseLoc / font.DomFontFile.text
+        return self.__children__['fonts']

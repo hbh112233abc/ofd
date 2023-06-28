@@ -10,6 +10,14 @@ xml = Path(__file__).parent / 'files' / 'test3_unzip_files' / 'Doc_0' / 'Documen
 
 def test_document():
     doc = Document(xml)
+    doc.show()
     pages = doc.pages()
     assert len(pages) > 0
-    print(doc)
+    for page in pages:
+        page.show()
+
+    public_res = doc.public_res()
+    public_res.show()
+
+    document_res = doc.document_res()
+    document_res.show()

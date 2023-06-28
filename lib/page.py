@@ -9,10 +9,11 @@ from .image import CT_Image
 from .draw import CT_Composite
 
 class CT_PageBlock(Model):
-    NodesTextObject:Optional[List[CT_Text]] = Field(default_factory=lambda:[])
-    NodesPathObject:Optional[List["CT_Path"]] = Field(default_factory=lambda:[])
-    NodesImageObject:Optional[List[CT_Image]] = Field(default_factory=lambda:[])
-    NodesCompositeObject:Optional[List[CT_Composite]] = Field(default_factory=lambda:[])
+    NodesTextObject:Optional[List[CT_Text]] = Field(None)
+    NodesPathObject:Optional[List["CT_Path"]] = Field(None)
+    NodesImageObject:Optional[List[CT_Image]] = Field(None)
+    NodesCompositeObject:Optional[List[CT_Composite]] = Field(None)
+    NodesPageBlock:Optional[List["CT_PageBlock"]] = Field(None)
 
 
 class LayerType(str,Enum):

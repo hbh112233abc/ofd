@@ -13,7 +13,7 @@ from .outline import OutlineElem
 from .permission import CT_Permission
 from .v_preference import CT_VPreferences
 from .bookmark import Bookmark
-
+from .res import Res
 
 class CT_CommonData(Model):
     DomMaxUnitID:ST_ID = Field(0,description="当前文档中所有对象使用标识的最大值,初始为0;用于文档编辑,向文档新增一个对象时,该值+1",ge=0)
@@ -56,3 +56,15 @@ class Document(Model):
             self.__children__['pages'].append(PageModel(loc))
 
         return self.__children__['pages']
+
+    def public_res(self):
+        if not self.__children__.get('public_res'):
+            loc = self.xml.parent / self.DomCommonData.DomPublicRes
+            self.__children__['public_res'] = Res(loc)
+        return self.__children__['public_res']
+
+    def document_res(self):
+        if not self.__children__.get('document_res'):
+            loc = self.xml.parent / self.DomCommonData.DomDocumentRes
+            self.__children__['document_res'] = Res(loc)
+        return self.__children__['document_res']
