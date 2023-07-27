@@ -22,10 +22,10 @@ class ColorSpaceType(str,Enum):
     RGB = "RGB"
     CMYK = "CMYK"
 
-class Palette(BaseModel):
+class Palette(Model):
     NodesCV:ST_Array = []
 
-class CT_ColorSpace(BaseModel):
+class CT_ColorSpace(Model):
     AttrType:ColorSpaceType = ColorSpaceType.RGB
     AttrBitsPerComponent:Optional[BitsPerComponent] = BitsPerComponent.BPC8
     AttrProfile:Optional[ST_Loc] = ''
@@ -45,7 +45,7 @@ class CellContent(Model):
     NodesPageBlock:Optional["CT_PageBlock"] = None
     AttrThumbnail:Optional[ST_RefID] = None
 
-class CT_Pattern(BaseModel):
+class CT_Pattern(Model):
     AttrWidth:float = 0.0
     AttrHeight:float = 0.0
     AttrXStep:Optional[float] = 0.0
@@ -66,11 +66,11 @@ class Extend(IntEnum):
     E2 = 2
     E3 = 3
 
-class Segment(BaseModel):
+class Segment(Model):
     DomColor:"CT_Color" = None
     AttrPosition:Optional[float] = Field(None,ge=0,le=1)
 
-class Shd(BaseModel):
+class Shd(Model):
     AttrStartPoint:ST_Pos = Field(default_factory=lambda:[0,0])
     AttrEndPoint:ST_Pos = Field(default_factory=lambda:[0,0])
     NodesSegment:List[Segment] = Field(default_factory=lambda:[],min_items=2)
@@ -80,30 +80,30 @@ class Shd(BaseModel):
 
 class CT_AxialShd(Shd):pass
 
-class CT_RadialShd(BaseModel):
+class CT_RadialShd(Model):
     AttrEndRadius:NonNegativeInt = 0
     AttrStartRadius:Optional[NonNegativeInt] = 0
     AttrEccentricity:Optional[float] = Field(0,ge=0,lt=1.0)
     AttrAngle:Optional[float] = Field(0,ge=0,le=360)
 
-class Point(BaseModel):
+class Point(Model):
     AttrX:NonNegativeFloat = 0.0
     AttrY:NonNegativeFloat = 0.0
     AttrEdgeFlag:Optional[NonNegativeInt] = None
     DomColor:"CT_Color" = None
 
-class CT_GouraudShd(BaseModel):
+class CT_GouraudShd(Model):
     AttrExtend:Optional[int] = Field(0,ge=0,le=1)
     NodesPoint:List[Point] = Field([],min_items=3)
     DomBackColor:"CT_Color" = None
 
-class CT_LaGouraudShd(BaseModel):
+class CT_LaGouraudShd(Model):
     AttrVerticesPerRow:NonNegativeInt = 0
     AttrExtend:Optional[int] = Field(0,ge=0,le=1)
     NodesPoint:List[Point] = Field([],min_items=4)
     DomBackColor:"CT_Color" = None
 
-class CT_Color(BaseModel):
+class CT_Color(Model):
     AttrValue:Optional[ST_Array] = None
     AttrIndex:Optional[NonNegativeInt] = None
     AttrColorSpace:Optional[ST_RefID] = None

@@ -13,9 +13,9 @@ from lib.util import check_doc_ns
 
 
 class DOM:
-    def __init__(self,el:Union[Element,Path]):
-        if isinstance(self.el,Path):
-            self.read_xml(self.el)
+    def __init__(self,el:Union[Element,Path,str]):
+        if isinstance(el,(Path,str)):
+            self.read_xml(el)
         else:
             self.el = el
 

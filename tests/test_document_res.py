@@ -9,6 +9,7 @@ from lib.page import CT_PageBlock
 from lib.res import Res
 
 xml = Path(__file__).parent / 'files' / 'test3_unzip_files' / 'Doc_0' / 'DocumentRes.xml'
+xml = Path(__file__).parent / 'files' / 'test4_unzip_files' / 'Doc_0' / 'DocumentRes.xml'
 
 def test():
     res = Res(xml)

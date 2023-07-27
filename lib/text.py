@@ -46,7 +46,7 @@ class CGTransform(CT_CGTransform):pass
 
 class CT_Text(Model):
     AttrID:str = ''
-    AttrBoundary:CT_Box = Field(default_factory=lambda:CT_Box())
+    AttrBoundary:CT_Box = None
     AttrFont:ST_RefID = ''
     AttrSize:float = 0.0
     AttrStroke:Optional[bool] = False
@@ -56,7 +56,7 @@ class CT_Text(Model):
     AttrCharDirection:Optional[Direction] = Direction.D0
     AttrWeight:Optional[Weight] = 400
     AttrItalic:Optional[bool] = False
-    DomFillColor:Optional[CT_Color] = Field(default_factory=lambda:CT_Color())
-    DomStrokeColor:Optional[CT_Color] = Field(default_factory=lambda:CT_Color())
+    DomFillColor:Optional[CT_Color] = None
+    DomStrokeColor:Optional[CT_Color] = None
     NodesTextCode:List[TextCode] = Field(default_factory=lambda:[])
     NodesCGTransform:List[CGTransform] = Field(default_factory=lambda:[])

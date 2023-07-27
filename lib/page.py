@@ -3,17 +3,9 @@
 __author__ = 'hbh112233abc@163.com'
 
 from .action import Actions
-from .text import CT_Text
 from .classes import *
-from .image import CT_Image
-from .draw import CT_Composite
 
-class CT_PageBlock(Model):
-    NodesTextObject:Optional[List[CT_Text]] = Field(None)
-    NodesPathObject:Optional[List["CT_Path"]] = Field(None)
-    NodesImageObject:Optional[List[CT_Image]] = Field(None)
-    NodesCompositeObject:Optional[List[CT_Composite]] = Field(None)
-    NodesPageBlock:Optional[List["CT_PageBlock"]] = Field(None)
+from .graph import CT_PageBlock
 
 
 class LayerType(str,Enum):

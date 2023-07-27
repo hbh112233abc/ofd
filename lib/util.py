@@ -3,12 +3,8 @@
 __author__ = 'hbh112233abc@163.com'
 
 
-from pathlib import Path
 from typing import Any, Union
 from xml.etree.ElementTree import Element
-
-from lxml import etree
-from lib.dom import DOM
 
 
 # docNS that have to be part of every ofd file

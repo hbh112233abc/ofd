@@ -4,7 +4,7 @@ __author__ = 'hbh112233abc@163.com'
 
 from typing import List
 from .classes import *
-from .page import CT_PageBlock
+from .graph import CT_PageBlock
 
 class Page(Model):
     AttrPageID:ST_RefID = 0

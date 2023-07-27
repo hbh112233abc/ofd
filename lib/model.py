@@ -13,7 +13,7 @@ from pydantic.fields import ModelField
 from rich import print
 from rich.tree import Tree
 
-from .util import boolVal, intVal, read_xml,FILE_DOC_NS
+from .util import boolVal, intVal, FILE_DOC_NS
 from .dom import DOM
 
 TAG_PREFIX = f"{{{FILE_DOC_NS['ofd']}}}"
@@ -88,6 +88,11 @@ class Model(BaseModel):
         tree = self.__tree__(with_prefix)
         print(tree)
 
+    def __getattr__(self, __name: str) -> Any:
+        for k,v in self.__dict__.items():
+            if k.endswith(__name):
+                return v
+        return super().__getattr__(__name)
 
     def decode(self, e:Union[Path,DOM,Element]):
         if isinstance(e,(str,Path)):

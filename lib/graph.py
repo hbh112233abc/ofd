@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 __author__ = 'hbh112233abc@163.com'
 
+from lib.draw import CT_Composite
+from lib.image import CT_Image
 from lib.model import TAG_PREFIX
+from lib.text import CT_Text
 from .classes import *
 from .color import CT_Color
-from .page import CT_PageBlock
 
 class RuleEnum(str,Enum):
     NonZero = "NonZero"
@@ -13,13 +15,20 @@ class RuleEnum(str,Enum):
 
 class CT_Path(Model):
     AttrID:str = ''
-    AttrBoundary:CT_Box = Field(default_factory=lambda:CT_Box())
+    AttrBoundary:CT_Box = None
     AttrStroke:Optional[bool] = True
     AttrFill:Optional[bool] = False
     AttrRule:Optional[RuleEnum] = RuleEnum.NonZero # NonZero or EvenOdd
     DomAbbreviatedData:List[str] = Field(default_factory=lambda:[])
     DomFillColor:CT_Color = Field(default_factory=lambda:ColorRGB(255, 255, 255))
     DomStrokeColor:CT_Color = Field(default_factory=lambda:ColorRGB(0, 0, 0))
+
+class CT_PageBlock(Model):
+    NodesTextObject:Optional[List[CT_Text]] = Field(None)
+    NodesPathObject:Optional[List[CT_Path]] = Field(None)
+    NodesImageObject:Optional[List[CT_Image]] = Field(None)
+    NodesCompositeObject:Optional[List[CT_Composite]] = Field(None)
+    NodesPageBlock:Optional[List["CT_PageBlock"]] = Field(None)
 
 class Path(CT_Path):
     pass
