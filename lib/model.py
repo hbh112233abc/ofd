@@ -92,7 +92,6 @@ class Model(BaseModel):
         for k,v in self.__dict__.items():
             if k.endswith(__name):
                 return v
-        return super().__getattr__(__name)
 
     def decode(self, e:Union[Path,DOM,Element]):
         if isinstance(e,(str,Path)):

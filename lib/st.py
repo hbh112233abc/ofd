@@ -98,3 +98,6 @@ class ST_Box(BaseModel):
             raise ValueError("Box width must be greater 0")
         if self.height <= 0:
             raise ValueError("Box height must be greater 0")
+
+    def __str__(self):
+        return f'<ST_BOX x={self.x} y={self.y} width={self.width} height={self.height}>'
