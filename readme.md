@@ -9,7 +9,7 @@ OFD 文档解析库,开发中...
 ## OFD 解析
 
 ```python
-from ofd.reader import Reader
+from ofdlib import Reader
 
 file = "your_path_of_ofd_document.ofd"
 ofd = Reader(file)
